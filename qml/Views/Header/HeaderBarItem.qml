@@ -13,7 +13,7 @@ Rectangle {
     property int headerHeight: 0
     property var titles
     property int currentIndex: 0
-    signal clicked;
+    signal clicked(int index);
 
     Row {
         width: root.width

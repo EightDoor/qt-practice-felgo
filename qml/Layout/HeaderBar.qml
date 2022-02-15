@@ -31,9 +31,9 @@ Item {
                 width: root.barWidth
                 height: root.headerHeight
                 currentIndex: swiperCurrent.currentIndex
-                onClicked: {
-                    swiperCurrent.currentIndex = 1;
-                }
+                onClicked:(index)=>{
+                              swiperCurrent.currentIndex = index;
+                          }
             }
 
             // tab contents
