@@ -3,25 +3,23 @@ import Felgo 3.0
 
 Rectangle {
     id: root
-    border.width: 1
-    border.color: ThemeColors.dividerColor
     property int menuWidth: 0
     Rectangle {
         width: root.menuWidth
         height: root.height
-        border.width: 1
-        border.color: ThemeColors.dividerColor
         Row {
             anchors.centerIn: parent
             Rectangle {
                 width: 50
                 height: 50
                 radius: 100
-                border.color: "red"
-                Text {
-                    anchors.centerIn: parent
-                    id: label
-                    text: "测试"
+                AppImage {
+                    id: avatar
+                    defaultSource: "https://apk.start6.cn/home-barrage.png"
+                    width: parent.width
+                    height: parent.height
+                    fillMode: Image.PreserveAspectFit
+                    clip: true
                 }
             }
             Rectangle {

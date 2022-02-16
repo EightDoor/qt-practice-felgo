@@ -3,6 +3,7 @@ import Felgo 3.0
 import QtQuick.Controls 2.0 as QuickControls2
 import "./"
 import "../Views/Header"
+import "../Views/Personalized"
 
 
 Item {
@@ -31,9 +32,9 @@ Item {
                 width: root.barWidth
                 height: root.headerHeight
                 currentIndex: swiperCurrent.currentIndex
-                onClicked: {
-                    swiperCurrent.currentIndex = 1;
-                }
+                onClicked:(index)=>{
+                              swiperCurrent.currentIndex = index;
+                          }
             }
 
             // tab contents
@@ -45,15 +46,30 @@ Item {
                 interactive: false
                 currentIndex: swiperCurrent.currentIndex
                 ContentBody {
-                    id: red
+                    id: personalized
+                    width: root.width
+                    height: root.headerHeight
+                    PersonalizedReComm {
+                        id: personalizedReComm
+                        width: root.width
+                        height: root.height
+                    }
+                }
+                ContentBody {
+                    id: songSheet
                     width: root.width
                     height: root.headerHeight
                     AppText {
-                        text: "测试"
+                        text: "歌单"
                     }
                 }
-                Rectangle {
-                    color: "Green"
+                ContentBody {
+                    id: rankingList
+                    width: root.width
+                    height: root.headerHeight
+                    AppText {
+                        text: "排行榜"
+                    }
                 }
             }
         }

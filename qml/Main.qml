@@ -8,6 +8,20 @@ App {
     height: 480
     minimumHeight: 480
     minimumWidth: 640
+    onInitTheme: {
+        Theme.colors.textColor = "black";
+    }
+
+    Component.onCompleted: {
+        HttpRequest.config({
+                               // 开启缓存
+                               cache: true
+                           });
+
+
+        HttpNetworkActivityIndicator.activationDelay = 0
+    }
+
     NavigationStack {
         Page {
             id: pageHome

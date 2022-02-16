@@ -7,13 +7,11 @@ Rectangle {
     id: root
     height: root.height
     width: root.width
-    border.color: "Red"
-    border.width: 1
 
     property int headerHeight: 0
     property var titles
     property int currentIndex: 0
-    signal clicked;
+    signal clicked(int index);
 
     Row {
         width: root.width
@@ -22,13 +20,15 @@ Rectangle {
         Repeater {
             id: repeater
             model: titles
+
             Rectangle {
                 width: 80
                 height: root.headerHeight
+
                 AppText {
                     id: text
                     text: titles[index]
-                    color: ThemeColors.secondaryTextColor
+                    color: ThemeColors.textColor
                     anchors.centerIn: parent
                     MouseArea {
                         anchors.fill: parent
@@ -38,6 +38,15 @@ Rectangle {
                     }
                 }
 
+                Rectangle {
+                    id: bottomBorderIsShow
+                    visible: root.currentIndex == index
+                    width: 80
+                    height: 2
+                    color: "Black"
+                    x:0
+                    y: root.headerHeight - 2
+                }
             }
         }
     }
